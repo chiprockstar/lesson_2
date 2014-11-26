@@ -67,15 +67,26 @@ class GameEngine
     puts "Choose one: (P/R/S) or Q to quit"
   end
 
-  def human_choice
+end
+
+
+class Human
+
+  def human_play
     human_choice = gets.chomp.upcase
     if human_choice == "Q"
-       exit
+      exit
     end
     human_choice
   end
 
-  def computer_choice
+end
+
+
+
+class Computer
+
+  def computer_play
     computer_choice = WINNING_RULES.keys[rand(WINNING_RULES.length)]
   end
 
@@ -85,8 +96,10 @@ end
 while 1 < 2
   play = GameEngine.new()
   play.prompt()
-  human_choice = play.human_choice()
-  computer_choice =	play.computer_choice()
+  human_turn = Human.new()
+  human_choice = human_turn.human_play()
+  computer_turn =	Computer.new()
+  computer_choice = computer_turn.computer_play()
   game = Game.new()
   game.determine_winner(computer_choice, human_choice)
 
