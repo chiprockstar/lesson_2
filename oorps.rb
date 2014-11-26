@@ -83,7 +83,7 @@ while 1 < 2
   play.prompt()
   human_turn = Human.new()
   human_choice = human_turn.human_play()
-  computer_turn =	Computer.new()
+  computer_turn = Computer.new()
   computer_choice = computer_turn.computer_play()
   game = Game.new()
   game.determine_winner(computer_choice, human_choice)
