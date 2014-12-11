@@ -66,7 +66,9 @@ class Computer
     end
 
     if block_move == false
-      computer_choices.shuffle!
+
+      computer_choices.shuffle
+
       score_arr[computer_choices[0]] = 'O'
     end
 
