@@ -28,13 +28,13 @@ class Card
   end
 
   def find_face_value
-   	case face_value
+     case face_value
       when 'J' then 'Jack'
       when 'Q' then 'Queen'
       when 'K' then 'King'
       when 'A' then 'Ace'
-		 else
-		 	face_value
+     else
+       face_value
     end
 
   end
@@ -60,7 +60,7 @@ class Deck
         cards << Card.new(suit, face_value)
       end
     end
-		shuffle_cards
+    shuffle_cards
   end
 
   def shuffle_cards
@@ -130,9 +130,9 @@ class Player
     @cards = []
   end
 
-	def show_flop
-		show_hand
-	end
+  def show_flop
+    show_hand
+  end
 
 end
 
@@ -147,11 +147,11 @@ class Dealer
     @cards = []
   end
 
-	def show_flop
-		puts "---- Dealer's Hand ----"
-		puts "=> First card is hidden"
-		puts "=> Second card is #{cards[1]}"
-	end
+  def show_flop
+    puts "---- Dealer's Hand ----"
+    puts "=> First card is hidden"
+    puts "=> Second card is #{cards[1]}"
+  end
 
 end
 
@@ -160,40 +160,40 @@ class Game
   attr_accessor :deck, :player, :dealer, :deck_count
 
   def initialize
-		@player = Player.new("YourName")
-		@dealer = Dealer.new
-		@deck = Deck.new(1)
+    @player = Player.new("YourName")
+    @dealer = Dealer.new
+    @deck = Deck.new(1)
   end
 
-	def start
-		set_player_name
-		set_how_many_decks
-		deal_cards
-		show_flop
-		players_turn
-		dealers_turn
-		exit
-	end
+  def start
+    set_player_name
+    set_how_many_decks
+    deal_cards
+    show_flop
+    players_turn
+    dealers_turn
+    exit
+  end
 
   def clear_screen
     system "clear"
   end
 
-	def set_player_name
-		clear_screen
-		puts "Enter your name."
-		player.name = gets.chomp
-	end
+  def set_player_name
+    clear_screen
+    puts "Enter your name."
+    player.name = gets.chomp
+  end
 
-	def show_flop
-		player.show_flop
-		dealer.show_flop
-	end
+  def show_flop
+    player.show_flop
+    dealer.show_flop
+  end
 
-	def set_how_many_decks
-		puts "Enter how many decks you would like to use? 1, 2, 3 or more."
-		deck.deck_count = gets.chomp.to_i
-	end
+  def set_how_many_decks
+    puts "Enter how many decks you would like to use? 1, 2, 3 or more."
+    deck.deck_count = gets.chomp.to_i
+  end
 
   def deal_cards
     player.add_card(deck.deal_one)
@@ -202,10 +202,10 @@ class Game
     dealer.add_card(deck.deal_one)
   end
 
-	def show_flop
-		player.show_flop
-		dealer.show_flop
-	end
+  def show_flop
+    player.show_flop
+    dealer.show_flop
+  end
 
   def players_turn
     begin
