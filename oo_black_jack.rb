@@ -45,9 +45,9 @@ end
 class Deck
   attr_accessor :cards, :deck_count
 
-  def initialize(dc)
+  def initialize(deck_count)
     @cards = []
-    @deck_count = dc
+    @deck_count = deck_count
 
     (1..deck_count).each do
       create_deck
