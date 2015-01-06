@@ -118,6 +118,10 @@ module Hand
     total > 21
   end
 
+  def clear_cards
+    cards = []
+  end
+
 end
 
 
@@ -157,6 +161,7 @@ end
 
 
 class Game
+  include Hand
   attr_accessor :deck, :player, :dealer, :deck_count
 
   def initialize
@@ -165,14 +170,31 @@ class Game
     @deck = Deck.new(1)
   end
 
-  def start
-    set_player_name
+  def start(play_again = 'yes')
+    if play_again != 'y'
+       set_player_name
+       clear_cards
+    end
+    player.cards = []
+    dealer.cards = []
     set_how_many_decks
     deal_cards
     show_flop
     players_turn
     dealers_turn
     exit
+  end
+
+  def another_game
+    puts "Would you like to play again? y / n"
+    choice = gets.chomp.downcase
+    if choice == 'y'
+      clear_screen
+      start('y')
+    else
+      exit
+    end
+
   end
 
   def clear_screen
@@ -215,11 +237,13 @@ class Game
 
       if player.total == 21
         puts "You win!"
+        another_game
         exit
       end
 
       if player.is_busted?
         puts "You're Busted, dealer wins!"
+        another_game
         exit
       end
 
@@ -242,11 +266,13 @@ class Game
 
       if dealer.is_busted?
         puts "Dealer Busted, you win!"
+        another_game
         exit
       end
 
       if dealer.total >= player.total #&& dealer.total >= 17 && dealer.total <= 21
         puts "Dealer wins!"
+        another_game
         exit
       end
 
