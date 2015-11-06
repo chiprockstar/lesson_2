@@ -79,35 +79,123 @@
 
 
 
-class GoodDog
-
-  attr_accessor :name, :height, :weight
-
-  def initialize(n, h, w)
-    self.name = n
-    self.height = h
-    self.weight = w
-  end
-
-
-  def change_info(n, h, w)
-    self.name = n
-    self.height = h
-    self.weight = w
-  end
-
-  def info
-    "#{self.name} weighs #{self.weight} and is #{self.height} tall."
-  end
-
-  def what_is_self
-    self
-  end
-
-
-end
-
- sparky = GoodDog.new('Sparky', '12 inches', '10 lbs')
- p sparky.what_is_self
+# class GoodDog
+#
+#   attr_accessor :name, :height, :weight
+#
+#   def initialize(n, h, w)
+#     self.name = n
+#     self.height = h
+#     self.weight = w
+#   end
+#
+#
+#   def change_info(n, h, w)
+#     self.name = n
+#     self.height = h
+#     self.weight = w
+#   end
+#
+#   def info
+#     "#{self.name} weighs #{self.weight} and is #{self.height} tall."
+#   end
+#
+#   def what_is_self
+#     self
+#   end
+#
+#
+# end
+#
+#  sparky = GoodDog.new('Sparky', '12 inches', '10 lbs')
+#  p sparky.what_is_self
 # puts sparky.age
 # puts
+
+
+
+
+
+# class GoodDog
+#   @@number_of_dogs = 0
+#
+#   def initialize
+#     @@number_of_dogs += 1
+#   end
+#
+#   def self.total_number_of_dogs
+#     @@number_of_dogs
+#   end
+#
+# end
+# system "clear"
+#
+# puts GoodDog.total_number_of_dogs
+#
+# dog1 = GoodDog.new
+# dog2 = GoodDog.new
+#
+# puts GoodDog.total_number_of_dogs
+
+# class GoodDog
+#
+#   attr_accessor :name, :height, :weight
+#
+#   def initialize(n, h, w)
+#     self.name = n
+#     self.height = h
+#     self.weight = w
+#   end
+#
+#   def change_info(n, h, w)
+#     self.name = n
+#     self.height = h
+#     self.weight = w
+#   end
+#
+#
+#   def info
+#     "#{self.name} weighs #{self.weight} and is #{self.height} tall."
+#   end
+#
+#   def what_is_self
+#     self
+#   end
+#
+# end
+# system "clear"
+#
+# sparky = GoodDog.new('Sparky', '12 inches', '10 lbs')
+#
+# p sparky.what_is_self
+
+# class MyCar
+#   attr_accessor :color, :model, :year
+#
+#   def initialize(c, m, y)
+#     @color = c
+#     @model = m
+#     @year = y
+#   end
+#
+#
+#
+#   def to_s
+#     "Your car is a #{model}, color #{color} and was built in #{year}."
+#   end
+#
+# end
+#
+# my_car = MyCar.new('red', 'Ford', '1964')
+# puts my_car
+
+class Person
+  attr_writer :name
+  def initialize(name)
+    @name = name
+  end
+end
+
+system "clear"
+bob = Person.new("Steve")
+bob.name = "Bob"
